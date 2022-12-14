@@ -1,0 +1,23 @@
+name: 'Digital Ocean Deploy App'
+description: 'Deploy an app from an app spec on Digital Ocean'
+author: 'Jérémie Jost <jeremiejost@gmail.com>'
+branding:
+  icon: 'droplet'
+  color: 'blue'
+inputs:
+  token:
+    description: 'A DigitalOcean personal access token'
+    required: true
+  spec:
+    description: 'Path of the spec file to deploy'
+    required: false
+    default: './deploy/app.yaml'
+  app-id:
+    description: 'ID of the app to update'
+    required: false
+outputs:
+  app-id:
+    description: 'ID of the updated app'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
